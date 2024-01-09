@@ -20,9 +20,11 @@ function App() {
     22, 23, 24, 25,
   ];
   return (
-    <div className="container">
-      <div className="sideNav">
+    <main className="container">
+      {/** Side Navigation */}
+      <nav className="sideNav">
         <div className="navTop">
+          {/** Store Profile */}
           <div className="storeProfile">
             <img className="storeProfileImage" src="./reebok.png" />
             <div className="storeProfileDetails">
@@ -31,19 +33,25 @@ function App() {
             </div>
             <img className="storeDropDown" src="./down.png" />
           </div>
+
+          {/** Navigation Menu */}
           <div className="navMenu">
+            {/** Menu Items */}
             {menuItems.map((item: string) => {
-              const imageUrl: string = "./" + item + ".png";
+              const imageUrl = "./" + item + ".png";
+              const classNameForCurrentItem = "menuItem" + " " + "menu" + item;
               return (
-                <div className="menuItem">
+                <div className={classNameForCurrentItem}>
                   <img className="menuIcon" src={imageUrl} />
-                  <div className="menuLable">{item}</div>
+                  <div className="menuLabel">{item}</div>
                 </div>
               );
             })}
           </div>
         </div>
+
         <div className="navBottom">
+          {/** Wallet Section */}
           <div className="wallet">
             <img className="walletImage" src="./Wallet.png" />
             <div className="credit">
@@ -52,9 +60,12 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="dashboard">
+      </nav>
+
+      {/** Dashboard Section */}
+      <section className="dashboard">
         <div className="headerNav">
+          {/** Header Navigation */}
           <div className="heading">
             <h1 className="headerText">Payments</h1>
             <div className="helpSection">
@@ -63,6 +74,7 @@ function App() {
             </div>
           </div>
 
+          {/** Search Input */}
           <div className="searchInput">
             <img className="searchIcon" src="./Search.png" />
             <input
@@ -71,6 +83,8 @@ function App() {
               placeholder="Search features, tutorials, etc."
             />
           </div>
+
+          {/** Header Buttons */}
           <div className="headerButtons">
             <button className="btn">
               <img src="./Feedback.png" />
@@ -80,8 +94,10 @@ function App() {
             </button>
           </div>
         </div>
+
         <div className="dashboardOverview">
           <div className="dashboardDetails">
+            {/** Dashboard Filter and Cards */}
             <div className="dashboardFilter">
               <h1>Overview</h1>
               <select className="filter" name="filter">
@@ -96,16 +112,18 @@ function App() {
                 </option>
               </select>
             </div>
+
             <div className="cardContainer">
+              {/** Dashboard Cards */}
               <div className="card">
                 <div>
-                  <div className="cardLable">Online Orders</div>
+                  <div className="cardLabel">Online Orders</div>
                   <h2 className="cardText">231</h2>
                 </div>
               </div>
               <div className="card">
                 <div>
-                  <div className="cardLable">Amount Received</div>
+                  <div className="cardLabel">Amount Received</div>
                   <h2 className="cardText">₹ 2908049</h2>
                 </div>
               </div>
@@ -113,6 +131,7 @@ function App() {
           </div>
 
           <div className="dashboardTable">
+            {/** Dashboard Table */}
             <div className="heading">Transactions | This Month</div>
             <div className="tableUtilityCont">
               <div className="tableSearchFilter">
@@ -132,7 +151,9 @@ function App() {
                 <img className="download" src="./Download.png" />
               </div>
             </div>
+
             <div className="tableCont">
+              {/** Transaction Table */}
               <div className="table">
                 <table className="payoutsTable">
                   <tr className="tableHeaderContainer">
@@ -155,7 +176,9 @@ function App() {
                 </table>
               </div>
             </div>
+
             <div className="paginator">
+              {/** Pagination Buttons */}
               <button>
                 <img className="arrow" src="./Left.png" />
                 Previous
@@ -177,8 +200,8 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 
